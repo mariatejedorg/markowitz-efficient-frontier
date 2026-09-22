@@ -5,6 +5,7 @@ dar continuidad visual entre proyectos del portfolio.
 """
 
 import sys
+from datetime import datetime
 from pathlib import Path
 
 import numpy as np
@@ -167,6 +168,8 @@ def build_dashboard(
     )
     tiles_html = _kpi_tiles_html(min_var_metrics, max_sharpe_metrics, equal_metrics)
 
+    run_timestamp = datetime.now().strftime("%d/%m/%Y %H:%M")
+
     page = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -240,7 +243,7 @@ def build_dashboard(
   <div class="hero-inner">
     <h1>Markowitz Portfolio Optimization</h1>
     <p>De medir el riesgo a decidir la cartera: la frontera eficiente, la cartera de mínima varianza y la de máximo Sharpe, calculadas sobre 8 acciones europeas reales.</p>
-    <div class="meta">Datos en vivo vía yfinance · misma cesta de activos que el Proyecto 1</div>
+    <div class="meta">Datos en vivo vía yfinance · misma cesta de activos que el Proyecto 1 · Última ejecución: {run_timestamp}</div>
   </div>
 </div>
 
